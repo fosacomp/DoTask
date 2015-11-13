@@ -1,3 +1,2 @@
-hi
-discard this
-print t;
+hi;
+discard this;
