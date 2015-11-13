@@ -1,2 +1,3 @@
 hi
 discard this
+print t;
