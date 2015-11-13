@@ -1,2 +1,2 @@
-hi
-discard this
+hi;
+discard this;

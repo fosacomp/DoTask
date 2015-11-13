@@ -1,2 +1,2 @@
-Console.Write("HI");
-hi
+Console.Write("HI";);
+hi;
