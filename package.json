@@ -4,13 +4,13 @@
   "author": "Oleg Fadin",
   "description": "Synchronization app for data consolidation",
   "private": true,
+  "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
-    "express": "4.14.0",
-    "socket.io": "1.5.1"
-  },
-  "browser": true,
-  "node": true
+    "express": "~4.14.0",
+    "socket.io": "1.5.1",
+    "ejs": "~2.5.2"
+  }
 }
