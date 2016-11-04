@@ -1,26 +1,23 @@
 /**
  * Created by macspirit on 04.11.16.
  */
-var express = require('express');
-var app = express();
+'use strict';
 
-// set the port of our application
-// process.env.PORT lets the port be set by Heroku
-var port = process.env.PORT || 8080;
+const express = require('express');
+const socketIO = require('socket.io');
+const path = require('path');
 
-// set the view engine to ejs
-app.set('view engine', 'ejs');
+const PORT = process.env.PORT || 3000;
+const INDEX = path.join(__dirname, 'index.html');
 
-// make express look in the public directory for assets (css/js/img)
-app.use(express.static(__dirname + '/public'));
+const server = express()
+        .use((req, res) => res.sendFile(INDEX) )
+.listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
-// set the home page route
-app.get('/', function(req, res) {
+const io = socketIO(server);
 
-    // ejs render automatically looks in the views folder
-    res.render('index');
-});
-
-app.listen(port, function() {
-    console.log('Our app is running on http://localhost:' + port);
+io.on('connection', function(socket){
+    socket.on('chat message', function(msg){
+        io.emit('chat message', msg);
+    });
 });
