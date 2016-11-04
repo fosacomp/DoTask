@@ -7,7 +7,8 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
 app.get('/', function(req, res){
-    res.sendfile('index.html');
+    //res.sendfile('index.html');
+    res.send('<h1>Hello world</h1>');
 });
 
 io.on('connection', function(socket){
@@ -16,4 +17,4 @@ io.on('connection', function(socket){
     });
 });
 
-http.listen("https://botanim.herokuapp.com");
+http.listen(3000);
