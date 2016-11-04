@@ -1,3 +1,16 @@
 {
-"start": "node server.js"
+  "name": "chat",
+  "version": "1.0.0",
+  "author": "Oleg Fadin",
+  "description": "Synchronization app for data consolidation",
+  "private": true,
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "4.14.0",
+    "socket.io": "1.5.1"
+  },
+  "browser": true,
+  "node": true
 }

@@ -16,6 +16,4 @@ io.on('connection', function(socket){
     });
 });
 
-http.listen(80, function(){
-    console.log('listening on *:80');
-});
+http.listen("https://botanim.herokuapp.com");
