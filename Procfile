@@ -1,3 +1,1 @@
-{
-"start": "node server.js"
-}
+web: node start
