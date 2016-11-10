@@ -1,0 +1,179 @@
+*::-webkit-input-placeholder {
+	color: #666;
+	opacity: 1;
+}
+*:-moz-placeholder {
+	color: #666;
+	opacity: 1;
+}
+*::-moz-placeholder {
+	color: #666;
+	opacity: 1;
+}
+*:-ms-input-placeholder {
+	color: #666;
+	opacity: 1;
+} 
+body {
+	font-family: "RobotoRegular", sans-serif;
+	font-size: 16px;
+}
+.header_topline {
+	background-color: #43484C;
+	padding: 15px 0 0 0;
+	color: #fff;
+}
+.header_topline a {
+	color: #fff;
+} 
+.auth_links {
+	display: inline-block;
+	vertical-align: middle;
+	z-index: 10;
+	margin-top: -6px;
+}
+.auth {
+	float: right;
+}
+.auth_links a {
+	text-decoration: underline;
+	color:#fff;
+}
+.auth_links a:hover {
+	text-decoration: none;
+	color:#fff;
+}
+.auth_links a:visited {
+	text-decoration: underline;
+	color:#fff;
+}
+.soc_button {
+	float: right;
+    margin-top: -30px;
+    margin-bottom: -6px;
+}
+.soc_button > a {
+	font-size: 26px;
+	margin-left: 8px;
+} 
+.soc_button > a:hover,
+.soc_button > a:visited {
+	text-decoration: none;
+} 
+.navigation{
+	float:left;
+} 
+.auth_buttons,
+
+.main {
+	padding: 0 15px;
+}
+.main_mnu_button {
+	background-color: transparent;
+	font-size: 26px;
+	border: medium none;
+}
+.main_mnu_button {
+	color: #fff;
+} 
+.top_header {
+	background-color: #4aaad2;
+} 
+.main_mnu {
+	color: #fff;
+	margin-bottom: 0px;
+	margin-top: -15px;
+}
+.main_mnu a {
+	color: #fff;
+	padding: 15px;
+	display: block;
+	-webkit-transition: all .25s;
+	-o-transition: all .25s;
+	transition: all .25s;
+}
+.main_mnu  a:hover {
+	background-color: #2787af;
+}
+.main_mnu ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	float: left;
+	text-transform: uppercase;
+}
+.main_mnu ul {
+	z-index: 12;
+}
+.main_mnu ul li {
+	display: inline-block;
+}
+.top_contacts {
+	float: right;
+	font-size: 30px;
+	padding: 0 15px;
+	background-color: #2787af;
+	line-height: 53px;
+}   
+footer.footer {
+	background-color: #eee;
+	padding: 25px 0;
+} 
+.button {
+	display: block;
+	border: medium none;
+	color: #fff;
+	background-color: #2bc6a4;
+	padding: 10px 20px;
+	border-radius: 5px;
+	text-transform: uppercase;
+	text-align: center;
+}
+.button:hover {
+	background-color: #4feac8;
+}
+.button:active {
+	background-color: #14af8d;
+} 
+ 
+/*.payment {
+	display: inline-block;
+
+}
+.payment-icon{
+	display:inline-block;
+	overflow:hidden;
+	text-indent:999px;
+}
+.visa{
+	background-image:url(../img/logo_visa.png);
+	background-repeat:no-repeat;
+	width:52px;
+	height:25px;
+}
+.mastercard{
+	background-image:url(../img/logo_mastercard.png);
+	background-repeat:no-repeat;
+	width:52px;
+	height:25px;
+}
+.yamoney{background-image:url(../img/logo_yamoney.png);
+	background-repeat:no-repeat;
+	width:52px;
+	height:25px;
+}
+.webmoney{background-image:url(../img/logo_webmony.png);
+	background-repeat:no-repeat;
+	width:64px;
+	height:23px;
+}
+.qiwi{background-image:url(../img/logo_qiwi.png);
+	background-repeat:no-repeat;
+	width:72px;
+	height:27px;
+}*/  
+.logo {
+	margin-top: 10px;
+    margin-bottom: 10px;
+    width: 50px;
+}

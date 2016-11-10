@@ -1,16 +1,19 @@
 {
-  "name": "chat",
-  "version": "1.0.0",
-  "author": "Oleg Fadin",
-  "description": "Synchronization app for data consolidation",
+  "name": "dotask",
+  "version": "0.0.0",
   "private": true,
-  "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node app.js"
   },
   "dependencies": {
+    "body-parser": "~1.15.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "ejs": "~2.5.2",
     "express": "~4.14.0",
-    "socket.io": "1.5.1",
-    "ejs": "~2.5.2"
+    "morgan": "~1.7.0",
+    "mysql": "^2.12.0",
+    "serve-favicon": "~2.3.0",
+    "socket.io": "^1.5.1"
   }
 }
