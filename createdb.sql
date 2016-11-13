@@ -1,0 +1,61 @@
+CREATE TABLE `accounts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userid` int(11) NOT NULL,
+  `moneyavailable` decimal(5,2) NOT NULL DEFAULT '0.00',
+  `moneyfrost` decimal(5,2) NOT NULL DEFAULT '0.00',
+  `datemoneyadd` datetime DEFAULT NULL,
+  `datemoneyunfrost` datetime DEFAULT NULL,
+  `dategetmoney` datetime DEFAULT NULL,
+  `ordergetmoney` tinyint(1) NOT NULL DEFAULT '0',
+  `datesendmoney` datetime DEFAULT NULL,
+  `datefrostmoney` datetime DEFAULT NULL,
+  `transactionid` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `userid_UNIQUE` (`userid`),
+  KEY `userid_idx` (`userid`),
+  CONSTRAINT `userid` FOREIGN KEY (`userid`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(15) NOT NULL,
+  `pwd` varchar(32) NOT NULL,
+  `role` tinyint(1) NOT NULL DEFAULT '1',
+  `logo` varchar(100) NOT NULL DEFAULT 'http://localhost',
+  `email` varchar(35) NOT NULL,
+  `education` varchar(150) NOT NULL DEFAULT 'не заполнено',
+  `aboutme` varchar(250) NOT NULL DEFAULT 'не заполнено',
+  `reviewpos` int(5) NOT NULL DEFAULT '0',
+  `reviewneg` int(4) NOT NULL DEFAULT '0',
+  `ordersall` int(5) NOT NULL DEFAULT '0',
+  `ordersdone` int(5) NOT NULL DEFAULT '0',
+  `online` tinyint(1) NOT NULL DEFAULT '0',
+  `phone` char(10) NOT NULL DEFAULT '-',
+  `activated` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `creatorid` int(11) NOT NULL,
+  `performerid` int(11) NOT NULL DEFAULT '0',
+  `name` varchar(100) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '0',
+  `discipline` tinyint(2) NOT NULL,
+  `typework` tinyint(2) NOT NULL,
+  `comment` varchar(250) NOT NULL DEFAULT 'не указан',
+  `price` int(5) NOT NULL,
+  `dateaccept` date NOT NULL DEFAULT '1900-01-01',
+  `countpage` tinyint(3) NOT NULL DEFAULT '1',
+  `datecreate` date NOT NULL,
+  `original` tinyint(3) NOT NULL DEFAULT '0',
+  `returncount` tinyint(1) NOT NULL DEFAULT '0',
+  `messages` json DEFAULT NULL,
+  `files` json DEFAULT NULL,
+  `rates` json DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `creatorid_idx` (`creatorid`),
+  KEY `performerid_idx` (`performerid`),
+  CONSTRAINT `creatorid` FOREIGN KEY (`creatorid`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `performerid` FOREIGN KEY (`performerid`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

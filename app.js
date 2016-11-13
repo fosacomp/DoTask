@@ -18,6 +18,8 @@ var optionsStore = {
     password: config.get('mysql:password'),
     database: config.get('mysql:database'),
     createDatabaseTable: true,
+    checkExpirationInterval: 1200000, // How frequently expired sessions will be cleared; milliseconds.
+    expiration: 2400000, // The maximum age of a valid session; milliseconds.
     schema: {
         tableName: 'sessions',
         columnNames: {
