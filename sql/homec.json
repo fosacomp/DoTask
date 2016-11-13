@@ -1,0 +1,3 @@
+{
+  "test" : "SELECT 1 + 1 AS solution"
+}
