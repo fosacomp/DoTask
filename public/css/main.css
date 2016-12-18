@@ -25,16 +25,19 @@ body {
 }
 .header_topline a {
 	color: #fff;
-} 
+}
 .auth_links {
-	display: inline-block;
 	vertical-align: middle;
 	z-index: 10;
-	margin-top: -6px;
+	margin-top: -3px;
+	margin-left: 250px;
+	white-space: nowrap;
 }
-.auth {
-	float: right;
+
+.auth_links #logout {
+	margin-left: 96px;
 }
+
 .auth_links a {
 	text-decoration: underline;
 	color:#fff;
@@ -175,5 +178,17 @@ footer.footer {
 .logo {
 	margin-top: 10px;
     margin-bottom: 10px;
-    width: 50px;
+    width: 70px;
+}
+.logo-container{
+	margin-left: -140px;
+	margin-top: -17px;
+	margin-bottom: -2px;
+}
+.container-text {
+	text-align: center;
+	margin: 10px;
+}
+h4 {
+	text-align: center;
 }

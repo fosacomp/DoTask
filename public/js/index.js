@@ -1,28 +1,38 @@
-$(document).ready(function () {
-    $('.authorization_form').on('submit', function(e) {
-        e.preventDefault();
-
-        var login = $("#login").val();
-        var pass = $("#pwd").val();
-
-        $.ajax({
-            url: consolidatorURI + "/api/oauth/token",
-            type: "POST",
-            headers: { "Authorization": "Basic " + btoa(login + ":" + pass) },
-            contentType: "application/json",
-            accepts: "application/json",
-            cache: false,
-            dataType: 'json',
-            data: JSON.stringify({ grant_type: "password", username: login, password: pass }),
-            error: function(jqXHR) {
-                if (jqXHR.responseText)
-                    $("#validationInfo").text("Имя пользователя или пароль указаны неверно");
-            }
-        }).done(function(data) {
-            window.localStorage["token"] = "Bearer " + data.access_token;
-            window.localStorage["fio"] = data.fio;
-            window.localStorage["role"] = data.role;
-            window.location.href = consolidatorURI + (data.role == 2 ? "/views/sync" : "/views/manage-users");
-        });
+// авторизация
+$(function() {
+    $("#sign_submit").click(function(){
+        var data = { name: $('.sign_form #name').val(), pwd: $('.sign_form #pwd').val() };
+        ajax("/sign", "POST", data).done(function(res) {
+        	if(res.state)
+				window.location.href = "/home";
+		});
     });
 });
+
+// регистрация
+$(function() {
+	$("#register_submit").click(function(){
+		var data = { role: $('input#client')[0].checked ? 1 : 2,
+					 name: $('.register_form #name').val(),
+			         pwd: $('.register_form #pwd').val(),
+			         email: $('.register_form #email').val()};
+		ajax("/register", "POST", data).done(function(res){
+			if(res.state){
+				$('#register .close').click();
+				$('.notify-text').text('На указанный электронный адрес ' + data.email + ' отправлено письмо с ссылкой для активации учетной записи');
+				$('#register_notify').modal('show');
+			}
+		});
+	});
+});
+
+// очистка форм при закрытии
+$('#register').on('hidden.bs.modal', function () {
+	$(this).find("input").val('').end();
+	$('input#performer').prop('checked', false);
+	$('input#client').prop('checked', true);
+});
+$('#sign').on('hidden.bs.modal', function () {
+	$(this).find("input").val('').end();
+});
+

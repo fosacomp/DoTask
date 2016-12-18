@@ -1,0 +1,4 @@
+{
+  "get": "select id, name, pwd, salt, role from users where activated = 1 and name = ?",
+  "add": "insert into users set ?"
+}

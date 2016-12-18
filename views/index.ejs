@@ -1,17 +1,58 @@
-<% include header.ejs %>
-	<div class="main">
-		<img src="img/logo.png" alt="Логотип" class="logo">
-		Стартовая страница
+<!DOCTYPE html>
+<!--[if lt IE 7]><html lang="ru" class="lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html lang="ru" class="lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]><html lang="ru" class="lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="ru">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+	<title>DoTask</title>
+	<meta name="description" content="" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="shortcut icon" href="favicon.png" />
+	<link rel="stylesheet" href="libs/bootstrap.min.css"/>
+	<link rel="stylesheet" href="libs/font-awesome-4.2.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="css/fonts.css" />
+	<link rel="stylesheet" href="css/main.css" />
+	<link rel="stylesheet" href="css/media.css" />
+</head>
+<body>
+<header class="top_header">
+	<div class="header_topline">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-1	 logo-container">
+					<img src="img/logo.png" alt="Логотип" class="logo">
+				</div>
+				<div class="col-md-2 auth">
+						<a href="" data-toggle="modal" data-target="#register">Регистрация</a>&nbsp&nbsp
+						<a href="" data-toggle="modal" data-target="#sign">Вход</a>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
+</header>
+
+
+	<div class="main">
+		Стартовая страница
+
+	</div>
+
+
 <% include footer.ejs %>
-	<div id="registration" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridModalLabel" aria-hidden="true">
+
+	<div id="register" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h4 class="modal-title" id="gridModalLabel">Регистрация в системе DoTask</h4>
 				</div>
-				<form class="registration_form">
+				<form class="register_form">
 					<fieldset>
 						<div class="modal-body">
 							<div class="container-fluid">
@@ -27,8 +68,8 @@
 								</div> 
 								<div class="row">
 									<div class="form-group">
-										<label for="login">Логин</label>
-										<input type="text" class="form-control" id="login" name="login" placeholder="Логин"></input>
+										<label for="name">Логин</label>
+										<input type="text" class="form-control" id="name" name="login" placeholder="Логин"></input>
 									</div>
 								</div> 
 								<div class="row">
@@ -46,7 +87,7 @@
 								<div class="row">
 									<div class="form-group">
 										<label for="email">Email</label>
-										<input type="text" class="form-control" id="email" name="email" placeholder="Пароль"></input>
+										<input type="text" class="form-control" id="email" name="email" placeholder="Email"></input>
 									</div> 
 								</div>
 							</div>
@@ -55,48 +96,66 @@
 				</form>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
-					<button id="registration_submit" type="submit" class="btn btn-primary" value="submit">Регистрация</button>
+					<button id="register_submit" type="submit" class="btn btn-primary" value="submit">Регистрация</button>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div id="authorization" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridModalLabel"
+
+	<div id="sign" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridModalLabel"
 	aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="authorizationTitle">Вход в личный кабинет</h4>
-			</div>
-			<form class="authorization_form">
-				<fieldset>
-					<div class="modal-body">
-						<div class="container-fluid">
-							<div class="row">
-								<div class="form-group">
-									<label for="login">Логин</label>
-									<input type="text" class="form-control" id="login" name="login" placeholder="Логин"></input>
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="signTitle">Вход в личный кабинет</h4>
+				</div>
+				<form class="sign_form">
+					<fieldset>
+						<div class="modal-body">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="form-group">
+										<label for="name">Логин</label>
+										<input type="text" class="form-control" id="name" name="login" placeholder="Логин"></input>
+									</div>
 								</div>
-							</div> 
-							<div class="row">
-								<div class="form-group">
-									<label for="pwd">Пароль</label>
-									<input type="password" class="form-control" id="pwd" name="pwd" placeholder="Пароль"></input>
-								</div> 
-							</div>	
+								<div class="row">
+									<div class="form-group">
+										<label for="pwd">Пароль</label>
+										<input type="password" class="form-control" id="pwd" name="pwd" placeholder="Пароль"></input>
+									</div>
+								</div>
+							</div>
 						</div>
-					</div> 
-				</fieldset>
-			</form>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
-				<button id="authorization_submit" type="submit" class="btn btn-primary" value="submit">Вход</button>
+					</fieldset>
+				</form>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+					<button id="sign_submit" type="submit" class="btn btn-primary" value="submit">Вход</button>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
-</div>
+
+	<div id="register_notify" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridModalLabel"
+		 aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="signTitle">Регистрация выполнена</h4>
+				</div>
+				<div class="container-text"><span class="notify-text"></span></div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Закрыть</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 <% include footerscript.ejs %>
+<script src='/js/common.js'></script>
 <script src='/js/index.js'></script>
 </body>
 </html>

@@ -1,9 +1,81 @@
-<% include header.ejs %>
-	<div class="main">
-		<img src="img/logo.png" alt="Логотип" class="logo">
-		Кабинет заказчика
+<!DOCTYPE html>
+<!--[if lt IE 7]><html lang="ru" class="lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html lang="ru" class="lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]><html lang="ru" class="lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="ru">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+	<title>DoTask</title>
+	<meta name="description" content="" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="shortcut icon" href="favicon.png" />
+	<link rel="stylesheet" href="libs/bootstrap.min.css"/>
+	<link rel="stylesheet" href="libs/font-awesome-4.2.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="css/fonts.css" />
+	<link rel="stylesheet" href="css/main.css" />
+	<link rel="stylesheet" href="css/media.css" />
+</head>
+<body>
+<header class="top_header">
+	<div class="header_topline">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-1 logo-container">
+					<img src="img/logo.png" alt="Логотип" class="logo">
+				</div>
+				<div class="col-md-9">
+					<div class="navigation">
+						<nav class="main_mnu clearfix">
+							<ul>
+								<li><a class="active" href="/home">Главная</a></li>
+								<li><a href="/myorders">Мои заказы</a></li>
+								<li><a href="/balance">Баланс</a></li>
+								<li><a href="/help">Помощь</a></li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+				<div class="col-md-2 auth">
+					<div class="auth_links">
+						<a id="logout" href="/logout">Выход</a>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
+</header>
+
+
+<div class="main">
+
+	Кабинет заказчика
+
+	<ul id="messages"></ul>
+	<form action="">
+		<input id="m" autocomplete="off" /><button>Send</button>
+	</form>
+</div>
+
+
 <% include footer.ejs %>
 <% include footerscript.ejs %>
+<script src="/socket.io/socket.io.js"></script>
+<script src='/js/common.js'></script>
+<script src='/js/home.js'></script>
+<script>
+	getToken();
+//	var socket = io();
+//	$('form').submit(function(){
+//		socket.emit('chat message', $('#m').val());
+//		$('#m').val('');
+//		return false;
+//	});
+//	socket.on('chat message', function(msg){
+//		$('#messages').append($('<li>').text(msg));
+//	});
+</script>
 </body>
 </html>

@@ -22,23 +22,45 @@
 <header class="top_header">
     <div class="header_topline">
         <div class="container">
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="navigation">
-                        <nav class="main_mnu clearfix">
-                            <ul>
-                                <li><a class="active" href="">Главная</a></li>
-                                <li><a href="app.html">Приложения</a></li>
-                                <li><a href="">Портфолио</a></li>
-                                <li><a href="">Отзывы</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="auth">
-                        <div class="auth_links">
-                            <a href="" data-toggle="modal" data-target="#authorization">Вход</a> /
-                            <a href="" data-toggle="modal" data-target="#registration">Регистрация</a>
+            <div class="row">
+                <div class="col-md-1 logo-container">
+                    <img src="img/logo.png" alt="Логотип" class="logo">
+                </div>
+                <div class="col-md-9">
+                    <% if(role) { %>
+                        <div class="navigation">
+                            <nav class="main_mnu clearfix">
+                                <ul>
+                                    <li><a class="active" href="">Главная</a></li>
+                                    <li><a href="app.html">Мои заказы</a></li>
+                                    <li><a href="">Баланс</a></li>
+                                    <li><a href="">Помощь</a></li>
+                                </ul>
+                            </nav>
                         </div>
+                    <% } else if(role) { %>
+                        <div class="navigation">
+                            <nav class="main_mnu clearfix">
+                                <ul>
+                                    <li><a class="active" href="">Главная</a></li>
+                                    <li><a href="app.html">Биржа заказов</a></li>
+                                    <li><a href="">Мои заказы</a></li>
+                                    <li><a href="">Баланс</a></li>
+                                    <li><a href="">Профиль</a></li>
+                                    <li><a href="">Помощь</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    <% } %>
+                </div>
+                <div class="col-md-2 auth">
+                    <div class="auth_links">
+                        <% if(user) { %>
+                            <a id="logout" href="/logout">Выход</a>
+                        <% } else { %>
+                            <a href="" data-toggle="modal" data-target="#register">Регистрация</a>&nbsp&nbsp
+                            <a href="" data-toggle="modal" data-target="#sign">Вход</a>
+                        <% } %>
                     </div>
                 </div>
             </div>

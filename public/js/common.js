@@ -1,39 +1,30 @@
 //обработка отправки форм
-$(function() {
-	$("button#authorization_submit").click(function(){
-		ajax('authorization_form');   
-	});
-});
-$(function() {
-	$("button#registration_submit").click(function(){
-		ajax('registration_form');   
-	});
-});
 
-function ajax(formName){
-	$.ajax({
-		type: "POST",
-		url: "process.php",
-		data: $('form.' + formName).serialize(),
-		success: function(msg){
-			$("#thanks").html(msg)
-			$("#form-content").modal('hide'); 
-		},
-		error: function(){
-			alert("Ошибка отправки данных");
-		}
-	}); 
-}
+// $(function() {
+// 	$("button#registration_submit").click(function(){
+//
+//
+// 	});
+// });
 
-// очистка форм при закрытии
-$('#registration').on('hidden.bs.modal', function () {
-    $(this).find("input").val('').end();
-    $('input#performer').prop('checked', false);
-    $('input#client').prop('checked', true);
-});
-$('#authorization').on('hidden.bs.modal', function () {
-    $(this).find("input").val('').end();
-});
+// function ajax(data){
+// 	$.ajax({
+// 		type: "POST",
+// 		url: "/sign",
+// 		contentType: "application/json",
+// 		cache: false,
+// 		dataType: 'json',
+// 		data: JSON.stringify(data),
+// 		error: function(jqXHR) {
+// 			if (jqXHR.responseText)
+// 				$("#validationInfo").text("Имя пользователя или пароль указаны неверно");
+// 		}
+// 	}).done(function(data) {
+// 		window.location.href = "/home";
+// 	});
+// }
+
+
 // $(document).ready(function() {
 
 // 	$(".auth_buttons").click(function(){
@@ -128,3 +119,19 @@ $('#authorization').on('hidden.bs.modal', function () {
 // 	});
 
 // });
+// обертка аjax
+function ajax(url, method, data, timeout){
+    return $.ajax({
+        type: method,
+        url: url,
+        contentType: "application/json",
+        cache: false,
+        dataType: 'json',
+        data: JSON.stringify(data),
+        error: function(jqXHR) {
+            if (jqXHR.responseText)
+                $("#validationInfo").text("Имя пользователя или пароль указаны неверно");
+        },
+        timeout: timeout !== undefined ? timeout : 0
+    });
+}
