@@ -11,8 +11,8 @@ var config = require('./config');
 var session = require('express-session');
 var MySQLStore = require('express-mysql-session')(session);
 
-var cookie = require('cookie');
-var connect = require('connect');
+//var cookie = require('cookie');
+//var connect = require('connect');
 
 // options store sessions
 var optionsStore = {
@@ -158,12 +158,14 @@ io.use(function(socket, next) {
 
 io.on('connection', function(socket){
 
-    //if(socket.request.session.userid == 13) {
+    if(socket.request.session.userid == 13) {
         socket.on('chat message', function(msg) {
             if(this.session.userid)
                 io.emit('chat message', msg);
         }.bind({session:socket.request.session}));
-    //}
+    }
+    else
+        socket.disconnect();
 
 });
 

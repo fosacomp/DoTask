@@ -19,46 +19,81 @@
 	<link rel="stylesheet" href="css/media.css" />
 </head>
 <body>
-<header class="top_header">
-	<div class="header_topline">
-		<div class="container">
+<div class="row header">
+	<div class="col-lg-1">
+		<img src="img/logo.png" alt="Логотип" class="logo">
+	</div>
+	<div class="col-lg-5">
+		<div class="navigation">
+			<nav class="main_mnu clearfix">
+				<ul>
+					<li><a class="active" href="/home">Главная</a></li>
+					<li><a href="/myorders">Мои заказы</a></li>
+					<li><a href="/balance">Баланс</a></li>
+					<li><a href="/help">Помощь</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+	<div class="col-lg-6 header_topline_col">
+		<div class="header_topline" style="">
+			<a id="logout" href="/logout">Выход</a>
+		</div>
+	</div>
+</div>
+
+<div class="main" style="height: 800px">
+	<!--Кабинет заказчика-->
+
+	<!--<ul id="messages"></ul>-->
+	<!--<form action="">-->
+		<!--<input id="m" autocomplete="off" /><button>Send</button>-->
+	<!--</form>-->
+
+<div class="row">
+	<div class="left-panel col-lg-2" style="border: 2px solid #eee;">
+		<div class="create-order row">
+			<div class="col-lg-12">
+				<button type="button" class="btn btn-success" style="margin: 10px 0 10px;">СОЗДАТЬ ЗАКАЗ</button>
+			</div>
+		</div>
+		<p>left panel</p>
+	</div>
+
+	<div class="center-panel col-lg-8">
+		<div class="row">
+			<div class="col-lg-12">
+				<h4>Размещенные заказы</h4>
+			</div>
+		</div>
+		<div class="order col-lg-12" style="background-color: #f9f9f9; padding: 10px 20px 10px 20px;margin-bottom: 10px;border: 2px solid #eee;">
 			<div class="row">
-				<div class="col-md-1 logo-container">
-					<img src="img/logo.png" alt="Логотип" class="logo">
+				<div class="col-lg-12">
+					<p class="text-center" style="margin: -5px 0 5px;"><a href="">Matlab задание</a></p>
 				</div>
-				<div class="col-md-9">
-					<div class="navigation">
-						<nav class="main_mnu clearfix">
-							<ul>
-								<li><a class="active" href="/home">Главная</a></li>
-								<li><a href="/myorders">Мои заказы</a></li>
-								<li><a href="/balance">Баланс</a></li>
-								<li><a href="/help">Помощь</a></li>
-							</ul>
-						</nav>
-					</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-3">
+					<p class="text-center" style="margin: 0">В аукционе</p>
 				</div>
-				<div class="col-md-2 auth">
-					<div class="auth_links">
-						<a id="logout" href="/logout">Выход</a>
-					</div>
+				<div class="col-lg-3">
+					<p class="text-center" style="margin: 0">30.12.2016</p>
+				</div>
+				<div class="col-lg-3">
+					<p class="text-center"style="margin: 0">2 ставки</p>
+				</div>
+				<div class="col-lg-3">
+					<p class="text-center" style="margin: 0;">нет сообщений</p>
 				</div>
 			</div>
 		</div>
 	</div>
-</header>
 
-
-<div class="main">
-
-	Кабинет заказчика
-
-	<ul id="messages"></ul>
-	<form action="">
-		<input id="m" autocomplete="off" /><button>Send</button>
-	</form>
+	<div class="rigth-panel col-lg-2" style="border: 2px solid #eee;">
+		<p>right panel</p>
+	</div>
 </div>
-
+</div>
 
 <% include footer.ejs %>
 <% include footerscript.ejs %>

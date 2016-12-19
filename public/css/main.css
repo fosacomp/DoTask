@@ -18,10 +18,14 @@ body {
 	font-family: "RobotoRegular", sans-serif;
 	font-size: 16px;
 }
-.header_topline {
+.header {
 	background-color: #43484C;
-	padding: 15px 0 0 0;
-	color: #fff;
+}
+.header_topline_col{
+	text-align: right;
+}
+.header_topline{
+	margin: 16px 20px 0 0;
 }
 .header_topline a {
 	color: #fff;
@@ -65,6 +69,7 @@ body {
 } 
 .navigation{
 	float:left;
+	margin: 17px 0 0 0;
 } 
 .auth_buttons,
 
@@ -78,10 +83,7 @@ body {
 }
 .main_mnu_button {
 	color: #fff;
-} 
-.top_header {
-	background-color: #4aaad2;
-} 
+}
 .main_mnu {
 	color: #fff;
 	margin-bottom: 0px;
@@ -179,11 +181,7 @@ footer.footer {
 	margin-top: 10px;
     margin-bottom: 10px;
     width: 70px;
-}
-.logo-container{
-	margin-left: -140px;
-	margin-top: -17px;
-	margin-bottom: -2px;
+	margin: 10px 0 10px 20px;
 }
 .container-text {
 	text-align: center;
